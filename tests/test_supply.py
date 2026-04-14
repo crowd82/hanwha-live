@@ -1,5 +1,5 @@
 from unittest.mock import patch
-from services.supply import get_supply_demand
+from services.supply import get_supply_demand, _parse_number
 
 MOCK_HTML = """
 <table class="type2">
@@ -32,3 +32,12 @@ def test_get_supply_demand_fallback_on_error():
 
         assert result["foreigner"] == 0
         assert result["institution"] == 0
+        assert result["individual"] == 0
+        assert result["short_ratio"] == 0.0
+        assert result["short_trend"] == "unknown"
+
+
+def test_parse_number():
+    assert _parse_number("+870,000") == 870000
+    assert _parse_number("-1,040,000") == -1040000
+    assert _parse_number("0") == 0
