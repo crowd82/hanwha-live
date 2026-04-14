@@ -21,6 +21,8 @@ def test_get_community_sentiment_returns_required_fields():
         assert "sentiment_score" in result
         assert isinstance(result["sentiment_score"], int)
         assert 0 <= result["sentiment_score"] <= 100
+        assert "raw_titles" in result
+        assert isinstance(result["raw_titles"], list)
 
 def test_sentiment_score_high_on_positive_keywords():
     with patch("services.community.requests.get") as mock_get:

@@ -24,7 +24,7 @@ def _calc_sentiment(texts: list) -> int:
 def _scrape_naver_board() -> list:
     """네이버 종목토론방 최근 글 제목 수집"""
     try:
-        url = f"https://finance.naver.com/item/board.nhn?code={TICKER}"
+        url = f"https://finance.naver.com/item/board.naver?code={TICKER}"
         resp = requests.get(url, headers=HEADERS, timeout=10)
         soup = BeautifulSoup(resp.text, "html.parser")
 
