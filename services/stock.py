@@ -11,8 +11,8 @@ def get_current_price() -> dict:
 
     df = fdr.DataReader(TICKER, week_ago, today)
     if df.empty:
-        return {"price": 0, "change_pct": 0.0, "volume": 0, "open": 0,
-                "high_52w": 0, "low_52w": 0, "market_cap": 0}
+        return {"price": 0, "change": 0, "change_pct": 0.0, "volume": 0, "open": 0,
+                "high_52w": 0, "low_52w": 0, "market_cap_billion": 0}
 
     latest = df.iloc[-1]
     prev = df.iloc[-2] if len(df) >= 2 else df.iloc[-1]
