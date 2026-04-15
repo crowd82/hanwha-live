@@ -70,7 +70,7 @@ def stream_analysis(ctx: dict) -> Generator:
 
     try:
         response = client.models.generate_content_stream(
-            model="gemini-2.0-flash",
+            model="gemini-2.0-flash-lite",
             contents=prompt,
             config=types.GenerateContentConfig(
                 tools=[types.Tool(google_search=types.GoogleSearch())],
