@@ -2,7 +2,7 @@
 title: 한화생명 LIVE
 emoji: 📈
 colorFrom: yellow
-colorTo: orange
+colorTo: red
 sdk: docker
 pinned: false
 ---
